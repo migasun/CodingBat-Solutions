@@ -163,6 +163,12 @@ public String left2(String str)
 
 // Given a string, return a "rotated right 2" version where the last 2 chars are moved to the start.
 // The string length will be at least 2.
+//right2("Hello")	"loHel"
+//right2("java")	"vaja"
+//right2("Hi")	"Hi"
+//right2("code")	"deco"
+//right2("cat")	"atc"
+//right2("12345")	"45123"
 public String right2(String str)
 {
 	int len = str.length()-2;
@@ -172,14 +178,25 @@ public String right2(String str)
 
 // Given a string, return a string length 1 from its front, unless front is false,
 // in which case return a string length 1 from its back. The string will be non-empty.
+// theEnd("Hello", true) → "H"
+// theEnd("Hello", false) → "o"
+// theEnd("oh", true) → "o"
 public String theEnd(String str, boolean front)
 {
 	if(front)
 		return str.substring(0, 1);
 	return str.substring(str.length()-1);
 }
+
 // Given a string, return a version without both the first and last char of the string.
 // The string may be any length, including 0. 
+//withouEnd2("Hello")	"ell"
+//withouEnd2("abc")	"b"
+//withouEnd2("ab")	""
+//withouEnd2("a")	""
+//withouEnd2("")	""
+//withouEnd2("coldy")	"old"
+//withouEnd2("java code")	"ava cod"
 public String withouEnd2(String str)
 {
 	int len = str.length();
@@ -191,6 +208,12 @@ public String withouEnd2(String str)
 
 // Given a string of even length, return a string made of the middle two chars,
 // so the string "string" yields "ri". The string length will be at least 2.
+//middleTwo("string")	"ri"
+//middleTwo("code")	"od"
+//middleTwo("Practice")	"ct"
+//middleTwo("ab")	"ab"
+//middleTwo("0123456789")	"45"
+
 public String middleTwo(String str) 
 {
 	int half = str.length()/2-1;
@@ -199,6 +222,15 @@ public String middleTwo(String str)
 
 
 // Given a string, return true if it ends in "ly".
+//endsLy("oddly")	true
+//endsLy("y")	false
+//endsLy("oddy")	false
+//endsLy("oddl")	false
+//endsLy("olydd")	false
+//endsLy("ly")	true
+//endsLy("")	false
+//endsLy("falsey")	false
+//endsLy("evenly")	true
 public boolean endsLy(String str)
 {
 	int len = str.length();
@@ -210,13 +242,41 @@ public boolean endsLy(String str)
 
 // Given a string and an int n, return a string made of the first and last n chars from the string.
 // The string length will be at least n.
+//nTwice("Hello", 2) → "Helo"
+//nTwice("Chocolate", 3) → "Choate"
+//nTwice("Chocolate", 1) → "Ce"
+//nTwice("Hello", 2)	"Helo"
+//nTwice("Chocolate", 3)	"Choate"
+//nTwice("Chocolate", 1)	"Ce"
+//nTwice("Chocolate", 0)	""
+//nTwice("Hello", 4)	"Hellello"
+//nTwice("Code", 4)	"CodeCode"
+//nTwice("Code", 2)	"Code"
 public String nTwice(String str, int n)
-{	return (str.substring(0, n) + str.substring(str.length()-n));	}
+{	
+	return (str.substring(0, n) + str.substring(str.length()-n));	
+}
 
 
 // Given a string and an index, return a string length 2 starting at the given index.
 // If the index is too big or too small to define a string length 2, use the first 2 chars.
 // The string length will be at least 2.
+//twoChar("java", 0)	"ja"
+//twoChar("java", 2)	"va"
+//twoChar("java", 3)	"ja"
+//twoChar("java", 4)	"ja"
+//twoChar("java", -1)	"ja"
+//twoChar("Hello", 0)	"He"
+//twoChar("Hello", 1)	"el"
+//twoChar("Hello", 99)	"He"
+//twoChar("Hello", 3)	"lo"
+//twoChar("Hello", 4)	"He"
+//twoChar("Hello", 5)	"He"
+//twoChar("Hello", -7)	"He"
+//twoChar("Hello", 6)	"He"
+//twoChar("Hello", -1)	"He"
+//twoChar("yay", 0)	"ya"
+
 public String twoChar(String str, int index)
 {
 	if(index <= str.length()-2 && index >= 0)
@@ -227,6 +287,9 @@ public String twoChar(String str, int index)
 
 // Given a string of odd length, return the string length 3 from its middle,
 // so "Candy" yields "and". The string length will be at least 3. 
+//middleThree("Candy") → "and"
+//middleThree("and") → "and"
+//middleThree("solving") → "lvi"
 public String middleThree(String str)
 {
 	int len = str.length()/2;
@@ -236,6 +299,9 @@ public String middleThree(String str)
 
 // Given a string, return true if "bad" appears starting at index 0 or 1 in the string, such as with "badxxx" or
 // "xbadxx" but not "xxbadxx". The string may be any length, including 0. Note: use .equals() to compare 2 strings.
+//hasBad("badxx") → true
+//hasBad("xbadxx") → true
+//hasBad("xxbadxx") → false
 public boolean hasBad(String str)
 {
 	int len = str.length();
@@ -254,6 +320,16 @@ public boolean hasBad(String str)
 
 // Given a string, return a string length 2 made of its first 2 chars.
 // If the string length is less than 2, use '@' for the missing chars.
+//atFirst("hello") → "he"
+//atFirst("hi") → "hi"
+//atFirst("h") → "h@"
+//atFirst("hello")	"he"
+//atFirst("hi")	"hi"
+//atFirst("h")	"h@"
+//atFirst("")	"@@"
+//atFirst("kitten")	"ki"
+//atFirst("java")	"ja"
+//atFirst("j")	"j@"
 public String atFirst(String str)
 {
 	int len = str.length();
@@ -269,6 +345,15 @@ public String atFirst(String str)
 // Given 2 strings, a and b, return a new string made of the first char of a and
 // the last char of b, so "yo" and "java" yields "ya". If either string is length 0
 // use '@' for its missing char. 
+//lastChars("last", "chars")	"ls"
+//lastChars("yo", "java")	"ya"
+//lastChars("hi", "")	"h@"
+//lastChars("", "hello")	"@o"
+//lastChars("", "")	"@@"
+//lastChars("kitten", "hi")	"ki"
+//lastChars("k", "zip")	"kp"
+//lastChars("kitten", "")	"k@"
+//lastChars("kitten", "zip")	"kp"
 public String lastChars(String a, String b)
 {
 	int lenB = b.length();
@@ -281,6 +366,12 @@ public String lastChars(String a, String b)
 
 // Given two strings, append them together (known as "concatenation") and return the result.
 // However, if the concatenation creates a double-char, then omit one of the chars, so "abc" and "cat" yields "abcat". 
+//conCat("abc", "cat")	"abcat"
+//conCat("dog", "cat")	"dogcat"
+//conCat("abc", "")	"abc"
+//conCat("", "cat")	"cat"
+//conCat("pig", "g")	"pig"
+//conCat("pig", "doggy")	"pigdoggy"
 public String conCat(String a, String b)
 {
 	int lenA = a.length();
@@ -298,6 +389,11 @@ public String conCat(String a, String b)
 
 // Given a string of any length, return a new string where the last 2 chars
 // if present, are swapped, so "coding" yields "codign".
+//lastTwo("coding")	"codign"
+//lastTwo("cat")	"cta"
+//lastTwo("ab")	"ba"
+//lastTwo("a")	"a"
+//lastTwo("")	""
 public String lastTwo(String str)
 {
 	int len = str.length();
